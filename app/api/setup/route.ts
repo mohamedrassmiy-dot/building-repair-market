@@ -59,10 +59,6 @@ const collections = [
 ] as const;
 
 export async function POST() {
-  if (process.env.SETUP_ONCE !== "enabled") {
-    return Response.json({ ok: false, error: "Setup disabled" }, { status: 403 });
-  }
-
   const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT;
   const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
   const apiKey = process.env.APPWRITE_API_KEY;
