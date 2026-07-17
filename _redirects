@@ -1,0 +1,8 @@
+/services/* /الخدمات/:splat 301
+/suppliers/almustaqbal-building-materials/ /الموردون/شركة-المستقبل-لمواد-البناء/ 301
+/suppliers/mbmc-store/ /الموردون/متجر-المستقبل-لمواد-البناء/ 301
+/faq/ /الأسئلة-الشائعة/ 301
+/blog/ /المدونة/ 301
+/contact/ /تواصل-معنا/ 301
+
+/admin  /admin/  301

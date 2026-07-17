@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+locale: ar
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: "https://building-repair-market.netlify.app"
+display_url: "https://building-repair-market.netlify.app"
+logo_url: "/assets/logo.svg"
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: "unicode"
+  clean_accents: false
+  sanitize_replacement: "-"
+
+collections:
+  - name: "services"
+    label: "الخدمات"
+    label_singular: "خدمة"
+    folder: "src/content/services"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{fields.slug}}"
+    summary: "{{title}} — {{city}}"
+    sortable_fields: ["title","order","city"]
+    fields:
+      - {label: "اسم الخدمة", name: "title", widget: "string"}
+      - {label: "الرابط المختصر Slug", name: "slug", widget: "string"}
+      - {label: "الوصف المختصر", name: "excerpt", widget: "text"}
+      - {label: "المدينة", name: "city", widget: "string", required: false}
+      - {label: "خدمة مميزة", name: "featured", widget: "boolean", default: false}
+      - {label: "الترتيب", name: "order", widget: "number", default: 0, value_type: "int"}
+      - {label: "الأيقونة", name: "icon", widget: "string", required: false}
+      - label: "إعدادات SEO"
+        name: "seo"
+        widget: "object"
+        fields:
+          - {label: "SEO Title", name: "title", widget: "string"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "منع الأرشفة", name: "noindex", widget: "boolean", default: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+
+  - name: "suppliers"
+    label: "الموردون"
+    label_singular: "مورد"
+    folder: "src/content/suppliers"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{fields.slug}}"
+    fields:
+      - {label: "اسم المورد", name: "title", widget: "string"}
+      - {label: "الرابط المختصر Slug", name: "slug", widget: "string"}
+      - {label: "الوصف المختصر", name: "excerpt", widget: "text"}
+      - {label: "الموقع الإلكتروني", name: "website", widget: "string", required: false}
+      - {label: "الهاتف", name: "phone", widget: "string", required: false}
+      - {label: "البريد", name: "email", widget: "string", required: false}
+      - {label: "المواقع", name: "locations", widget: "list", required: false}
+      - {label: "الفئات", name: "categories", widget: "list", required: false}
+      - {label: "مورد مميز", name: "featured", widget: "boolean", default: false}
+      - label: "إعدادات SEO"
+        name: "seo"
+        widget: "object"
+        fields:
+          - {label: "SEO Title", name: "title", widget: "string"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "منع الأرشفة", name: "noindex", widget: "boolean", default: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+
+  - name: "blog"
+    label: "المقالات"
+    label_singular: "مقال"
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{fields.slug}}"
+    sortable_fields: ["publishedAt","title","category"]
+    fields:
+      - {label: "عنوان المقال", name: "title", widget: "string"}
+      - {label: "الرابط المختصر Slug", name: "slug", widget: "string"}
+      - {label: "الوصف المختصر", name: "excerpt", widget: "text"}
+      - {label: "التصنيف", name: "category", widget: "string"}
+      - {label: "تاريخ النشر", name: "publishedAt", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "تاريخ التحديث", name: "updatedAt", widget: "datetime", format: "YYYY-MM-DD", required: false}
+      - {label: "مقال مميز", name: "featured", widget: "boolean", default: false}
+      - {label: "الصورة", name: "image", widget: "image", required: false}
+      - label: "إعدادات SEO"
+        name: "seo"
+        widget: "object"
+        fields:
+          - {label: "SEO Title", name: "title", widget: "string"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "منع الأرشفة", name: "noindex", widget: "boolean", default: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
